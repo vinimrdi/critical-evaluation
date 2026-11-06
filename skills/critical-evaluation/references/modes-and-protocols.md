@@ -2,55 +2,51 @@
 
 ## Challenge-first (default)
 
-1. Independent take  
-2. Charitable summary  
-3. Assumptions  
-4. Earned strengths  
-5. Ordered critiques  
-6. **Pre-mortem (≥3 failure scenarios)**  
-7. Strongest counter-argument  
-8. Verdict + confidence  
-
-## Pre-mortem (can be primary mode)
-
-Assume failure is certain. Work **backward**:
-
-| Prompt | Output |
-|--------|--------|
-| What broke? | Concrete failure mode |
-| When was it knowable? | Leading indicator |
-| Who paid the cost? | Users, team, capital, reputation |
-| What false belief caused it? | Named assumption |
-| What would we do differently on day one? | Decision change |
-
-Then—and only then—state residual reasons the plan might still be worth attempting.
+Extract → independent assess → **verdict first** → findings → pre-mortem (if plan) → falsifiers → confidence.
 
 ## Devil’s advocacy
 
-Competent opponent’s case only. Optional closing: evidence that would defeat the advocacy.
+1. Steel-man in 2–3 lines.  
+2. Open with the single objection **most likely to change the decision**.  
+3. Then secondary objections.  
+4. Distinguish: unavoidable complexity vs complexity the plan *adds*.  
+5. Evidence that would defeat the advocacy.
 
 ## Red team
 
-Adversary incentives, abuse cases, dependency failures, detection plan. Rank by plausibility × impact.
+Adversary profile · attack vectors · detection · mitigations. Rank plausibility × impact.
 
 ## First principles
 
-Claims → fact / assumption / preference → drop non-essentials → rebuild minimal goal → gap vs original plan.
+Claims → fact / assumption / preference → drop non-essentials → rebuild goal → gap vs original. Name the **wrong variable** being optimized if any.
+
+## Evidence audit
+
+For each material claim:
+
+- `[CITED]` — basis + strength limit  
+- `[MISSING]` — what is absent  
+
+Separate **factual** from **normative** claims.
 
 ## Criterial
 
-Score logic, evidence, feasibility, risk management, clarity (1–10). Anything ≤4 is a **blocker** unless explicitly accepted.
+Score logic, evidence, feasibility, risk, clarity (1–10). ≤4 = blocker unless explicitly accepted.
 
-## Hold-under-pushback protocol
+## Pre-mortem
 
-Trigger: user challenges without new data.
+Assume failure. For each of ≥3 scenarios: what broke · early warning · who paid · false belief · day-one change.
+
+## Hold-under-pushback
 
 ```
-1. One-sentence restatement of the finding
-2. “What new evidence would change this?”
-3. Offer to revise criteria or gather data—not to flip for tone
+1. One-sentence restatement of verdict
+2. Classify: new evidence vs repeated opinion
+3. Update only on evidence; else hold
 ```
 
-## SWOT when requested
+## Optional internal 3-round check (high stakes)
 
-Weaknesses and Threats must be as specific as Strengths (mechanism, not labels).
+1. Initial stance + top assumptions  
+2. “What if assumption #1 is wrong?”  
+3. Resolve only if (1) and (2) conflict — re-derive, don’t tone-flip  

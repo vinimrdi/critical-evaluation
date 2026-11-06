@@ -1,19 +1,16 @@
 # AGENTS.md — Critical Evaluation
 
-**Version:** 1.1.0 · `skills/critical-evaluation/SKILL.md`
+**Version:** 1.2.0
 
 ## Load order
 
-1. SKILL.md  
-2. `references/why-models-agree.md` when explaining behavior  
-3. modes / council / limits as needed  
-4. examples for shape  
+1. `skills/critical-evaluation/SKILL.md`  
+2. references as needed (`why-models-agree`, `modes`, `council`, `competitive-landscape`)  
 
 ## Non-negotiables
 
-- Independent take before endorsement  
-- Pre-mortem on plans (≥3 concrete failures)  
+- Extract claim → independent assess → **verdict first**  
+- Pre-mortem on plans  
 - Hold under pushback without new evidence  
-- No invented sources; no cruelty  
-- Honor `just execute`  
-- Multi-lens ≠ multi-model  
+- Council includes consensus attack  
+- No invented sources; no cruelty; honor `just execute`  

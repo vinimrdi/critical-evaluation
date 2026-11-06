@@ -1,14 +1,20 @@
 # Changelog
 
+## 1.2.0 — 2026-11-06
+
+- Absorbed best patterns from leading public anti-sycophancy / council / devil’s advocate skills (see `references/competitive-landscape.md`).
+- **Verdict-first** + extract-claim → independent assess process.
+- Pushback classifier: new evidence vs repeated opinion.
+- Banned hollow openers; confirmation-question reframes (ask-don’t-tell).
+- **Evidence audit** mode with [CITED]/[MISSING].
+- Council **step 5: attack emerging consensus** (not only early soft dissent).
+- Devil’s advocacy: open with objection most likely to change the decision.
+- Richer trigger list in frontmatter description.
+
 ## 1.1.0 — 2026-11-06
 
-- **Mechanism-aware:** `references/why-models-agree.md` (RLHF preference tilt, why bad futures are under-generated).
-- **Mandatory pre-mortem** on non-trivial plans (≥3 concrete failure scenarios).
-- **Independent take first** + **hold-under-pushback** protocol.
-- `references/model-behavior-notes.md` — approximate family differences (version-sensitive).
-- Example: `examples/pre-mortem-plan.md`.
-- SKILL description and core stance expanded for failure forecasting.
+- Mechanism notes, mandatory pre-mortem, independent take, hold-under-pushback, model-family notes.
 
 ## 1.0.0 — 2026-11-06
 
-- Initial release: challenge-first, devil’s advocacy, red team, first principles, criterial scores, single-agent council.
+- Initial release.

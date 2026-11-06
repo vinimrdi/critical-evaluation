@@ -2,25 +2,17 @@
 
 ## Hard limits
 
+- Skills cannot erase training-time sycophancy; they bias the generation policy when the model complies.  
 - Not legal, medical, or financial advice.  
-- Not a substitute for domain experts or empirical tests.  
-- Cannot fully eliminate model sycophancy.  
-- Critique can be wrong—user must still judge.  
+- Critique can be wrong.  
+- Single-model council lenses are correlated.  
 
-## Ethics of critique
+## Ethics
 
-- Attack **ideas and plans**, not identity, appearance, or protected characteristics.  
-- No coaching for fraud, violent crime, or exploitation.  
-- If the user appears in acute distress, prefer supportive redirection to real help over “hard truth” theatrics.  
+- Attack ideas and plans, not identity.  
+- No assistance for violent crime or fraud.  
+- Acute distress → supportive redirection over performative harshness.  
 
 ## Constructive bar
 
-Every severe critique should answer: **If this is right, what should the user do differently?**
-
-## Confidence language
-
-| Level | Meaning |
-|-------|---------|
-| High | Well-supported by stated facts or clear logic |
-| Medium | Plausible; sensitive to missing data |
-| Low | Speculative; needs evidence |
+Severe critique must answer: **If this is right, what should change?**

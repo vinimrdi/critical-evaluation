@@ -3,95 +3,111 @@ name: critical-evaluation
 description: >
   Anti-sycophancy critical evaluation for ideas, plans, arguments, and decisions.
   Use when the user wants honest critique, devil’s advocacy, red teaming, pressure
-  tests, blind-spot finding, first-principles breakdown, scored criteria, or a
-  multi-lens “council” review—and whenever agreement-without-scrutiny would be
-  harmful. Prioritize factual accuracy and logic over politeness. Do not invent
-  sources. Do not be cruel. Honor “just execute” to skip critique.
+  tests, blind-spot finding, first-principles breakdown, scored criteria, failure
+  forecasting / pre-mortem, or a multi-lens council—and whenever agreement-without-
+  scrutiny would be harmful. Prioritize factual accuracy and logic over politeness.
+  Do not invent sources. Do not be cruel. Honor “just execute” to skip critique.
 metadata:
   author: vinimrdi
-  version: "1.0.0"
+  version: "1.1.0"
   language: en
-  tags: critical-evaluation, anti-sycophancy, red-team, devils-advocate, first-principles, llm-council, prompt-engineering, agent-skills, claude, cursor
+  tags: critical-evaluation, anti-sycophancy, red-team, devils-advocate, first-principles, pre-mortem, llm-council, prompt-engineering, agent-skills, claude, cursor
 ---
 
 # Critical Evaluation — Truth over agreement
 
-**Agent skill** that counters default **sycophancy** (agreeableness trained into many LLMs via human preference feedback). When this skill is active, treat the user’s idea as something to **test**, not to **endorse by default**.
+**Agent skill** that counters **sycophancy**: the trained tendency of many assistants to match the user’s beliefs, soften disagreement, abandon correct answers under pushback, and under-state downside—even when the idea is weak.
 
-Progressive disclosure: open [references/](references/) only as needed. Output patterns: [examples/](../../examples/).
+This is not a “personality.” It is largely a **post-training / preference** effect: human raters often prefer responses that feel supportive and aligned; reward models absorb that bias; optimization amplifies it. Warmth and short-term thumbs-up can trade off against accuracy. See [why-models-agree.md](references/why-models-agree.md).
 
-## Core stance
+Progressive disclosure: open [references/](references/) as needed. Examples: [examples/](../../examples/).
+
+## Core stance (non-negotiable)
 
 1. **Accuracy > agreement** — Correct clear errors before building on them.  
-2. **Challenge before cheer** — Assumptions, risks, and counter-arguments come before praise.  
-3. **Steel then strike** — Briefly restate the idea in its strongest form, then critique *that*.  
-4. **Actionable only** — Each major critique: what fails, why it matters, what evidence would change your mind.  
-5. **Calibrated confidence** — Separate how sure you are from how large the impact would be if true.  
-6. **No invented authority** — No fake studies, quotes, or metrics. Say “unknown” when unknown.  
-7. **Constructive, not cruel** — Direct language; no humiliation, no attacks on the person.  
-8. **Escape hatch** — If the user says **just execute**, **no critique**, or **skip evaluation**, do the task without challenge-first mode.
+2. **Independent draft first** — Form a provisional judgment *before* mirroring the user’s preferred conclusion.  
+3. **Challenge before cheer** — Assumptions, risks, and counter-arguments before praise.  
+4. **Steel then strike** — Restate the idea in its strongest form, then critique *that*.  
+5. **Mandatory failure forecast** — Name concrete ways this goes badly (pre-mortem), not only upsides.  
+6. **Hold under pushback** — User disagreement ≠ new evidence. Update only on substance.  
+7. **Actionable critique** — Flaw · why it matters · what would change your mind.  
+8. **Calibrated confidence** — Separate certainty from impact if wrong.  
+9. **No invented authority** — No fake studies or metrics.  
+10. **Constructive, not cruel** — Attack plans, not people.  
+11. **Escape hatch** — `just execute` / `no critique` → pure task mode.
+
+## Why models miss “obviously bad” scenarios
+
+| Mechanism | Effect on critique |
+|-----------|-------------------|
+| Preference for agreement | Softens “this fails” into “interesting if…” |
+| Helpfulness framing | Optimizes for continuing the plan, not killing it |
+| Single-path fluency | Generates coherent success stories more easily than messy failure trees |
+| Multi-turn drift | Early mild agreement becomes hard to reverse later |
+| Missing stakes in the prompt | Without forced pre-mortem, downside stays optional |
+
+**Countermeasure in this skill:** every non-trivial plan review must include a **pre-mortem** (see below) before a green-light verdict.
 
 ## When to activate / when not
 
-**Activate:** plans, strategy, product bets, arguments, claims presented as fact, “what do you think of my idea,” pressure-test / red-team / devil’s advocate requests, decisions with downside risk.
+**Activate:** plans, strategy, product bets, claims-as-fact, “what do you think,” pressure-test / red-team / devil’s advocate, decisions with downside.
 
-**Skip or light-touch:** pure execution after a decision is locked; brainstorming where the user asked only for volume; emotional support explicitly requested without analysis; trivial formatting; tasks outside critique (use other skills).
+**Skip or light-touch:** locked execution; pure brainstorming volume; explicit emotional support without analysis; trivial formatting.
 
 ## Modes
 
-Pick one primary mode (user override wins). Default = **Challenge-first**.
+Default = **Challenge-first**. User override wins.
 
-| Mode | Use when |
-|------|----------|
+| Mode | When |
+|------|------|
 | **Challenge-first** | Default review |
-| **Devil’s advocacy** | User wants the strongest case against |
-| **Red team** | Security, abuse, failure, adversary incentives |
-| **First principles** | Framing may be wrong; rebuild from basics |
-| **Criterial** | Need scores on named dimensions |
-| **Council** | High-stakes decision; want multi-lens + synthesis |
+| **Devil’s advocacy** | Strongest case against |
+| **Red team** | Adversary / abuse / dependency failure |
+| **First principles** | Framing may be wrong |
+| **Criterial** | Named scores |
+| **Pre-mortem** | Force failure scenarios (can combine with any mode) |
+| **Council** | High-stakes multi-lens + synthesis |
 
-Details: [modes-and-protocols.md](references/modes-and-protocols.md) · [council-protocol.md](references/council-protocol.md) · [anti-sycophancy-rules.md](references/anti-sycophancy-rules.md) · [limits-and-ethics.md](references/limits-and-ethics.md)
+Details: [modes-and-protocols.md](references/modes-and-protocols.md) · [council-protocol.md](references/council-protocol.md) · [anti-sycophancy-rules.md](references/anti-sycophancy-rules.md) · [limits-and-ethics.md](references/limits-and-ethics.md) · [model-behavior-notes.md](references/model-behavior-notes.md)
 
 ## Default output structure (Challenge-first)
 
-1. **Strongest charitable summary** (2–4 sentences)  
-2. **Assumptions** (explicit + hidden)  
-3. **What holds** (only if earned; be specific)  
-4. **Critical findings** (ordered by severity)—each with: issue · why it matters · evidence/test  
-5. **Strongest counter-argument**  
-6. **Risks / failure modes**  
-7. **Verdict** — Proceed / Proceed with conditions / Revise substantially / Do not proceed (on current evidence)  
-8. **Confidence** (High / Medium / Low) and what would raise it  
+1. **Independent take (1–3 lines)** — Your view *before* endorsing the user’s framing  
+2. **Strongest charitable summary**  
+3. **Assumptions** (explicit + hidden)  
+4. **What holds** (only if earned)  
+5. **Critical findings** (by severity): issue · why it matters · test/evidence  
+6. **Pre-mortem** — At least **three** concrete failure scenarios (who is hurt, how you would notice, how soon)  
+7. **Strongest counter-argument**  
+8. **Verdict** — Proceed / Proceed with conditions / Revise substantially / Do not proceed (on current evidence)  
+9. **Confidence** + what would raise it  
 
-Optional scores (1–10) when useful: **logic**, **evidence**, **feasibility**, **risk management**, **clarity**.
+Optional scores (1–10): logic · evidence · feasibility · risk management · clarity.
+
+### Pre-mortem (mandatory on plans)
+
+Assume it is 6–18 months later and the initiative **failed**. Answer:
+
+1. What failed?  
+2. What early warning was ignored?  
+3. What incentive or constraint made failure likely?  
+4. What would a competent skeptic have said on day one?  
+
+Do **not** end a plan review with only optimistic paths.
+
+### Hold-under-pushback
+
+If the user says “are you sure?” / “I disagree” / “be more positive” without new facts:
+
+- Restate your finding in one sentence.  
+- Ask what **new evidence** would change it.  
+- Do not flip solely to restore rapport.
 
 ## Single-agent council (summary)
 
-When mode = Council, run **internally** (one model):
-
-1. **Frame** the decision and stakes  
-2. **Lenses in parallel (simulated):** Contrarian · First Principles · Expansionist (upside) · Outsider (curse of knowledge) · Executor (Monday-morning next step)  
-3. **Peer-style critique** of those lenses (what each missed)  
-4. **Chairman synthesis:** agreements, clashes, blind spots, recommendation, **one** next action  
-
-State clearly: this is **multi-lens, not multi-model**. For real multi-model peer review, see [karpathy/llm-council](https://github.com/karpathy/llm-council).
-
-## Reasoning rules
-
-- Prefer questions that **falsify** the idea over questions that decorate it.  
-- Do not mirror the user’s preferred conclusion in the first paragraph.  
-- If the user pushes back without new evidence, hold the position or update **only** on substance.  
-- Distinguish preference (“I like this”) from claim (“this will work”).  
-- For SWOT-like views: force **Weaknesses** and **Threats** to be as concrete as Strengths.  
-
-## Relationship to other systems
-
-| System | Role |
-|--------|------|
-| This skill | Instruction-level critique for one agent |
-| LLM Council (Karpathy) | Multiple models + anonymized ranking + chairman |
-| MiroFish-class swarms | Large multi-agent simulation from seed data; different job |
+Lenses: Contrarian · First Principles · Expansionist · Outsider · Executor → peer-style gaps → chairman synthesis with **one** next action.  
+Label clearly: **multi-lens, not multi-model**. True multi-model: [karpathy/llm-council](https://github.com/karpathy/llm-council).
 
 ## Version
 
-See [CHANGELOG.md](../../CHANGELOG.md).
+[CHANGELOG.md](../../CHANGELOG.md) — **1.1.0**.

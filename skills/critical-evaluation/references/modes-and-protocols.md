@@ -2,59 +2,55 @@
 
 ## Challenge-first (default)
 
-Goal: improve the decision quality, not the user’s mood.
+1. Independent take  
+2. Charitable summary  
+3. Assumptions  
+4. Earned strengths  
+5. Ordered critiques  
+6. **Pre-mortem (≥3 failure scenarios)**  
+7. Strongest counter-argument  
+8. Verdict + confidence  
 
-1. Charitable summary  
-2. Assumptions  
-3. Earned strengths  
-4. Ordered critiques  
-5. Strongest counter-argument  
-6. Risks  
-7. Verdict + confidence  
+## Pre-mortem (can be primary mode)
+
+Assume failure is certain. Work **backward**:
+
+| Prompt | Output |
+|--------|--------|
+| What broke? | Concrete failure mode |
+| When was it knowable? | Leading indicator |
+| Who paid the cost? | Users, team, capital, reputation |
+| What false belief caused it? | Named assumption |
+| What would we do differently on day one? | Decision change |
+
+Then—and only then—state residual reasons the plan might still be worth attempting.
 
 ## Devil’s advocacy
 
-Argue **against** the proposal as a competent opponent would.
-
-- No requirement to be “balanced” in the same breath.  
-- After the case against, optionally list what evidence would defeat the advocacy.  
-- Still no personal attacks.
+Competent opponent’s case only. Optional closing: evidence that would defeat the advocacy.
 
 ## Red team
 
-Assume an adversary, competitor, or hostile environment.
-
-Cover at least:
-
-- Incentive misuse  
-- Edge cases and abuse  
-- Dependency failures (vendor, API, regulation, key person)  
-- Detection: how would you know it’s failing?  
-
-Output: attack scenarios ranked by plausibility × impact, then mitigations.
+Adversary incentives, abuse cases, dependency failures, detection plan. Rank by plausibility × impact.
 
 ## First principles
 
-1. List claims the idea depends on.  
-2. Mark each: **fact** / **assumption** / **preference**.  
-3. Drop non-essential assumptions.  
-4. Rebuild the smallest coherent version of the goal.  
-5. Compare rebuilt version to the user’s original plan—gap analysis.
+Claims → fact / assumption / preference → drop non-essentials → rebuild minimal goal → gap vs original plan.
 
-## Criterial evaluation
+## Criterial
 
-Agree criteria with the user if missing; otherwise use:
+Score logic, evidence, feasibility, risk management, clarity (1–10). Anything ≤4 is a **blocker** unless explicitly accepted.
 
-| Criterion | Question |
-|-----------|----------|
-| Logic | Internal consistency? |
-| Evidence | Support beyond assertion? |
-| Feasibility | Resources, time, skills? |
-| Risk | Downside and reversibility? |
-| Clarity | Can a stranger execute from this? |
+## Hold-under-pushback protocol
 
-Score 1–10 each, one sentence justification, then **blockers** (anything ≤4).
+Trigger: user challenges without new data.
 
-## SWOT / FOFA (when requested)
+```
+1. One-sentence restatement of the finding
+2. “What new evidence would change this?”
+3. Offer to revise criteria or gather data—not to flip for tone
+```
 
-Force **Weaknesses** and **Threats** to include concrete mechanisms, not labels. Equal depth on negative and positive quadrants.
+## SWOT when requested
+
+Weaknesses and Threats must be as specific as Strengths (mechanism, not labels).

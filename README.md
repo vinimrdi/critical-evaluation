@@ -17,14 +17,27 @@ Verdict-first critique · mandatory pre-mortem · hold under pushback · multi-l
 
 ## Install
 
-```bash
-git clone https://github.com/vinimrdi/critical-evaluation.git
-cp -R critical-evaluation/skills/critical-evaluation ~/.claude/skills/critical-evaluation
-```
+Full guide: [INSTALL.md](INSTALL.md).
+
+### Claude Code (one command)
 
 ```bash
-npx skills add vinimrdi/critical-evaluation --skill critical-evaluation
+npx skills add https://github.com/vinimrdi/critical-evaluation/tree/main/skills/critical-evaluation -g -a claude-code
 ```
+
+### Manual
+
+```bash
+git clone --depth 1 https://github.com/vinimrdi/critical-evaluation.git /tmp/critical-evaluation
+mkdir -p ~/.claude/skills
+cp -R /tmp/critical-evaluation/skills/critical-evaluation ~/.claude/skills/critical-evaluation
+```
+
+`SKILL.md` must sit at `~/.claude/skills/critical-evaluation/SKILL.md`.
+
+### Claude.ai (web)
+
+Paste `skills/critical-evaluation/SKILL.md` into a skill review card, or upload a **flat ZIP** of that folder. A GitHub link alone is not enough.
 
 ---
 
